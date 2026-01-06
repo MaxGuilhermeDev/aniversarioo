@@ -4,7 +4,6 @@
 const galeria = document.getElementById("galeria");
 
 const fotosGrid = [
-  "img/20251213_174918.jpg",
   "img/20251213_175036.jpg",
   "img/20251213_190635.jpg",
   "img/IMG-20250818-WA0006.jpg",
@@ -189,4 +188,6 @@ function verificarAudio() {
     fogos.style.display = "none";
   }
 }
+
+
 

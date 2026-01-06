@@ -62,6 +62,7 @@ p, .carrossel_desc {
 h1 {
   font-size: 32px;
   margin: 0;
+  padding-bottom: 30px;
 }
 
 p {
@@ -667,6 +668,126 @@ p {
     opacity: 0.6;
   }
 }
+
+/* TELA DE PARABÉNS */
+.parabens {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(180deg, rgba(250,218,221,0.95), rgba(231,84,128,0.85));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+}
+
+.parabens_content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
+}
+
+.parabens_titulo {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(32px, 8vw, 60px);
+  margin-bottom: 12px;
+}
+
+.parabens_desc {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.parabens_icone {
+  font-size: 48px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* Animação de salto para o ícone */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* BALÕES */
+.baloes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.balao {
+  position: absolute;
+  font-size: 40px;
+  animation: subir linear infinite;
+}
+
+/* Diferentes posições e tempos */
+.balao1 { left: 10%; animation-duration: 6s; bottom: -50px; }
+.balao2 { left: 30%; animation-duration: 8s; bottom: -50px; }
+.balao3 { left: 50%; animation-duration: 7s; bottom: -50px; }
+.balao4 { left: 70%; animation-duration: 9s; bottom: -50px; }
+.balao5 { left: 90%; animation-duration: 8.5s; bottom: -50px; }
+
+@keyframes subir {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  50% { transform: translateY(-50vh) rotate(15deg); opacity: 0.9; }
+  100% { transform: translateY(-100vh) rotate(-15deg); opacity: 0; }
+}
+
+/* CONFETES */
+.confetes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.confete {
+  position: absolute;
+  font-size: 24px;
+  animation: cair linear infinite;
+}
+
+.confete1 { left: 15%; animation-duration: 4s; top: -20px; }
+.confete2 { left: 35%; animation-duration: 5s; top: -30px; }
+.confete3 { left: 55%; animation-duration: 4.5s; top: -10px; }
+.confete4 { left: 75%; animation-duration: 6s; top: -25px; }
+.confete5 { left: 90%; animation-duration: 5.5s; top: -15px; }
+
+@keyframes cair {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+/* Botão de navegação */
+.parabens .nav {
+  position: absolute;
+  bottom: 20px;
+  padding: 14px 18px;
+  font-size: 20px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(231, 84, 128, 0.95);
+  color: white;
+  cursor: pointer;
+  z-index: 3;
+  box-shadow: 0 8px 20px rgba(231, 84, 128, 0.4);
+}
+
+.parabens .nav:hover {
+  transform: scale(1.1);
+}
+
 
 
 
