@@ -1,7 +1,7 @@
 const imagens = [
   "img/IMG-20251115-WA0009.jpg",
   "img/IMG-20250912-WA0015.jpg",
-  "img/IMG-20250912-WA0014.jpg"
+  "img/IMG-20250912-WA0014.jpg",
 ];
 
 const carrossel = document.querySelector(".carrossel");

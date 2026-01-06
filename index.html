@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Feliz Aniversário 🎂</title>
   <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -35,13 +36,14 @@
 
       <div class="stitch">
         <img src="img/stitch_2_fe569138.png" width="150" height="150">
-        <p class="spongebob_text">Para maior fã do Stitch</p>
+        <p class="spongebob_text">Também do Stitch</p>
       </div>
     </div>
   </section>
 
   <!-- TELA 3 — PARABÉNS COM ÁUDIO -->
   <section class="tela">
+    <div class="fogos"></div>
     <div class="imagem">
       <h1 class="imagem_text">Desejamos feliz aniversário</h1>
       <img src="img/Gemini_Generated_Image_memdl5memdl5memd.png" width="300" height="300">
@@ -51,8 +53,14 @@
   <!-- TELA 4 — FOTOS REDONDAS -->
   <section class="tela">
     <section class="galeria_section">
-      <p>Essa mulher que sempre foi tão cuti cuti</p>
-      <div id="galeria_imagens" class="galeria_imagens"></div>
+      <h3>Essa mulher que sempre foi tão cuti cuti</h3>
+      <div id="galeria_imagens" class="galeria_imagens">
+        <div class="simbolo simbolo1">⚛️</div>
+        <div class="simbolo simbolo2">🧪</div>
+        <div class="simbolo simbolo3">🔬</div>
+        <div class="simbolo simbolo4">⚗️</div>
+        <div class="simbolo simbolo5">🧫</div>
+      </div>
     </section>
   </section>
 
@@ -64,8 +72,12 @@
   </section>
 
   <!-- TELA 6 — CARROSSEL -->
-  <section class="tela">
+  <section class="tela tela_carrossel">
     <div class="carrossel_section">
+      <h2 class="carrossel_titulo">Momentos especiais 💖</h2>
+      <p class="carrossel_desc">
+      </p>
+
       <div class="carrossel-wrapper">
         <button class="btn prev">‹</button>
         <div class="carrossel"></div>
@@ -75,6 +87,10 @@
   </section>
 
 </div>
+<div class="lightbox" id="lightbox">
+  <img id="lightbox-img" alt="Imagem ampliada">
+</div>
+
 
 <!-- BOTÕES DE NAVEGAÇÃO ENTRE TELAS -->
 <button class="nav prevTela">◀</button>

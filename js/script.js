@@ -42,7 +42,7 @@ fotosCirculares.forEach(src => {
 
 
 /* =========================
-   CARROSSEL CONTÍNUO
+   CARROSSEL
 ========================= */
 const carrossel = document.querySelector(".carrossel");
 
@@ -60,28 +60,29 @@ imagens.forEach(src => {
   carrossel.appendChild(img);
 });
 
-let index = 0;
+let indexCarrossel = 0;
 
 function atualizarCarrossel() {
-  carrossel.style.transform = `translateX(-${index * 100}%)`;
+  carrossel.style.transform = `translateX(-${indexCarrossel * 100}%)`;
 }
 
-document.querySelector(".next").addEventListener("click", () => {
-  index++;
-  if (index >= imagens.length) index = 0;
+document.querySelector(".next").onclick = () => {
+  indexCarrossel = (indexCarrossel + 1) % imagens.length;
   atualizarCarrossel();
-});
+};
 
-document.querySelector(".prev").addEventListener("click", () => {
-  index--;
-  if (index < 0) index = imagens.length - 1;
+document.querySelector(".prev").onclick = () => {
+  indexCarrossel = (indexCarrossel - 1 + imagens.length) % imagens.length;
   atualizarCarrossel();
-});
+};
 
 
 /* =========================
    SISTEMA DE TELAS (APP)
 ========================= */
+const telas = document.querySelectorAll(".tela");
+let telaAtual = 0;
+
 const btnNext = document.querySelector(".nextTela");
 const btnPrev = document.querySelector(".prevTela");
 
@@ -102,20 +103,42 @@ btnPrev.onclick = () => {
 };
 
 
+/* =========================
+   SWIPE (MOBILE)
+========================= */
+const app = document.querySelector(".app");
+let startX = 0;
+let endX = 0;
+const swipeThreshold = 60;
+
+app.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+app.addEventListener("touchend", e => {
+  endX = e.changedTouches[0].clientX;
+  const diff = startX - endX;
+
+  if (Math.abs(diff) > swipeThreshold) {
+    if (diff > 0) {
+      telaAtual = (telaAtual + 1) % telas.length;
+    } else {
+      telaAtual = (telaAtual - 1 + telas.length) % telas.length;
+    }
+    mostrarTela(telaAtual);
+  }
+});
+
 
 /* =========================
-   ÁUDIO – TOCA TODA VEZ
-   QUE A TELA APARECER
+   ÁUDIO – TELA PARABÉNS
 ========================= */
 const audio = new Audio("audio/xuxa-parabens-da-xuxa.mp3");
 audio.volume = 0.6;
 audio.preload = "auto";
 
-let telaAtual = 0;
-const telas = document.querySelectorAll(".tela");
-
 function verificarAudio() {
-  const telaParabens = telas[2]; // TELA 3 (index 2)
+  const telaParabens = telas[2]; // terceira tela
 
   if (telaParabens.classList.contains("ativa")) {
     audio.currentTime = 0;
@@ -126,4 +149,44 @@ function verificarAudio() {
   }
 }
 
+
+/* =========================
+   INICIALIZA
+========================= */
+mostrarTela(telaAtual);
+
+/* =========================
+   LIGHTBOX – GALERIA GRID
+========================= */
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+document.querySelectorAll("#galeria img").forEach(img => {
+  img.addEventListener("click", () => {
+    lightboxImg.src = img.src;
+    lightbox.classList.add("ativo");
+  });
+});
+
+// clicar fora da imagem fecha
+lightbox.addEventListener("click", e => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove("ativo");
+  }
+});
+
+function verificarAudio() {
+  const telaParabens = telas[2]; // terceira tela
+  const fogos = telaParabens.querySelector(".fogos");
+
+  if (telaParabens.classList.contains("ativa")) {
+    audio.currentTime = 0;
+    audio.play().catch(() => {});
+    fogos.style.display = "block";
+  } else {
+    audio.pause();
+    audio.currentTime = 0;
+    fogos.style.display = "none";
+  }
+}
 
