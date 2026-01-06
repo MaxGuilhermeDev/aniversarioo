@@ -523,7 +523,7 @@ p {
 .app {
   display: flex;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   touch-action: pan-y;
   background: rgba(250, 218, 221, 0.85);
