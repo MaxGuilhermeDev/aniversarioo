@@ -506,11 +506,9 @@ p {
   font-size: 20px;
   border-radius: 50%;
   border: none;
-  background: rgba(231, 84, 128, 0.95);
-  color: white;
-  cursor: pointer;
+  background: none;
+  color: transparent;
   z-index: 999;
-  box-shadow: 0 8px 20px rgba(231, 84, 128, 0.4);
   touch-action: pan-y;
 }
 
