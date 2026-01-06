@@ -112,13 +112,14 @@ const swipeThreshold = 60;
 
 app.addEventListener("touchstart", e => {
   startX = e.touches[0].clientX;
-});
+}, {passive: true});
 
 app.addEventListener("touchend", e => {
   endX = e.changedTouches[0].clientX;
   const diff = startX - endX;
 
   if (Math.abs(diff) > swipeThreshold) {
+    e.preventDefault();
     if (diff > 0) {
       telaAtual = (telaAtual + 1) % telas.length;
     } else {
@@ -127,6 +128,7 @@ app.addEventListener("touchend", e => {
     mostrarTela(telaAtual);
   }
 });
+
 
 
 /* =========================
